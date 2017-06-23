@@ -30,6 +30,19 @@ class Mysql(object):
             self.disConn
             os._exit(0)
 
+    def createTable(self, table):
+        try:
+            sql = "DROP TABLE IF EXISTS %s" % table
+            ret = self.execute(sql)
+            sql = "CREATE TABLE %s (id int(11) not null, xp varchar(500), xpurl varchar(500), xpid varchar(100), zhgxsj datetime, primary key(id))" % table
+            ret = self.execute(sql)
+            return ret
+        except Exception as e:
+            print sys._getframe().f_lineno
+            print (e)
+            self.conn.rollback()
+            return -1
+
     def disConn(self):
         if self.conn:
             self.cursor.close()
@@ -68,9 +81,12 @@ class Mysql(object):
 
 if __name__ == '__main__':
     mysqldb = Mysql('root', '123456', 'connector', '172.7.102.215')
+    mysqldb.createTable("PSIS_CZRKZP")
     params = [(i, "myphoto", "http://baidu.pan.com/%d.jpg" % i, "photo-%d" % i, "2017-06-01 20:25:23") for i in range(6000)]
     sql = "insert into PSIS_CZRKZP values (%s, %s, %s, %s, %s)"
     mysqldb.executemany(sql, params, True)
+    mysqldb.disConn()
+
 """
     sql = "select * from PSIS_CZRKZP"
     mysqldb.execute(sql)

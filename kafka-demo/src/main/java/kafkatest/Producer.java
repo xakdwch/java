@@ -41,18 +41,13 @@ public class Producer
 
             props.put("key.serializer", "org.apache.kafka.common.serialization.ByteArraySerializer");
             props.put("value.serializer", "org.apache.kafka.common.serialization.ByteArraySerializer");
-/*
-            Iterator<Entry<Object, Object>> it = props.entrySet().iterator();
-            while (it.hasNext()) {
-                Entry entry = (Entry)it.next();
-                Object key = entry.getKey();
-                Object value = entry.getValue();
-                System.out.println(key + ": " + value);
-            }
-*/
+
             KafkaProducer<byte[], byte[]> producer = new KafkaProducer<byte[], byte[]>(props);
             byte[] recordPayload = new byte[recordSize];
             Arrays.fill(recordPayload, (byte)'x');
+            Arrays.fill(recordPayload, 0, recordSize - 1, (byte)'x');
+            Arrays.fill(recordPayload, recordSize - 1, recordSize, (byte)'\n');
+            //final String recordPayload = "{\"targetTable\":\"w_dw_rf_record\",\"type\":\"INSERT\",\"data\":{\"RF_ID\":\"EF000003\",\"RF_FLAGID\":\"11111111\",\"RF_DATE\":\"2017-07-11 11:07:51\",\"RF_STAT\":\"1\"}}";
             ProducerRecord<byte[], byte[]> record = new ProducerRecord<byte[], byte[]>(topicName, recordPayload);
 
             for (int i = 0; i < numRecords; i++) {

@@ -9,6 +9,9 @@ import net.sourceforge.argparse4j.inf.ArgumentParser;
 import net.sourceforge.argparse4j.inf.ArgumentParserException;
 import net.sourceforge.argparse4j.inf.Namespace;
 
+import kafkatest.util.consumer.ConsumerRunner;
+import kafkatest.util.consumer.ConsumerGroup;
+
 public class Consumer {
     public static void main(String[] args) {
         ArgumentParser parser = argparser();
@@ -23,10 +26,12 @@ public class Consumer {
             Properties props = new Properties();
             props.put("enable.auto.commit", "true");
             props.put("auto.commit.interval.ms", "1000");
+            props.put("auto.offset.reset", "earliest");
             props.put("session.timeout.ms", "30000");
+            props.put("print.key", "true");
             props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
             props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-            
+
             if (consumerProps != null) {
                 for (String prop : consumerProps) {
                     String[] pieces = prop.split("=");

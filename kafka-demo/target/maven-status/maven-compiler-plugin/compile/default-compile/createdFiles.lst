@@ -1,0 +1,13 @@
+kafkatest/util/metadata/OffsetCommiter.class
+kafkatest/TopicOffsets.class
+kafkatest/util/metadata/CoordinatorFetcher.class
+kafkatest/TopicMetadata.class
+kafkatest/Producer.class
+kafkatest/util/consumer/ConsumerGroup.class
+kafkatest/util/metadata/TopicOffsetsFetcher.class
+kafkatest/Consumer.class
+kafkatest/util/metadata/TopicMetadataFetcher.class
+kafkatest/util/consumer/ConsumerRunner.class
+kafkatest/network/NetworkChannel.class
+kafkatest/OffsetCommit.class
+kafkatest/Producer$1.class

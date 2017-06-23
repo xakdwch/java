@@ -1,0 +1,12 @@
+/home/wuchao/kafka/java/kafka-demo/src/main/java/kafkatest/TopicOffsets.java
+/home/wuchao/kafka/java/kafka-demo/src/main/java/kafkatest/Consumer.java
+/home/wuchao/kafka/java/kafka-demo/src/main/java/kafkatest/util/consumer/ConsumerRunner.java
+/home/wuchao/kafka/java/kafka-demo/src/main/java/kafkatest/util/metadata/TopicOffsetsFetcher.java
+/home/wuchao/kafka/java/kafka-demo/src/main/java/kafkatest/TopicMetadata.java
+/home/wuchao/kafka/java/kafka-demo/src/main/java/kafkatest/network/NetworkChannel.java
+/home/wuchao/kafka/java/kafka-demo/src/main/java/kafkatest/util/consumer/ConsumerGroup.java
+/home/wuchao/kafka/java/kafka-demo/src/main/java/kafkatest/Producer.java
+/home/wuchao/kafka/java/kafka-demo/src/main/java/kafkatest/util/metadata/OffsetCommiter.java
+/home/wuchao/kafka/java/kafka-demo/src/main/java/kafkatest/util/metadata/TopicMetadataFetcher.java
+/home/wuchao/kafka/java/kafka-demo/src/main/java/kafkatest/util/metadata/CoordinatorFetcher.java
+/home/wuchao/kafka/java/kafka-demo/src/main/java/kafkatest/OffsetCommit.java
